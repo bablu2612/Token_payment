@@ -1,0 +1,41 @@
+<%= form_with(model: bankdetail) do |form| %>
+  <% if bankdetail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(bankdetail.errors.count, "error") %> prohibited this bankdetail from being saved:</h2>
+
+      <ul>
+        <% bankdetail.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :account_name %>
+    <%= form.text_field :account_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :country %>
+    <%= form.text_field :country %>
+  </div>
+
+  <div class="field">
+    <%= form.label :iban %>
+    <%= form.text_field :iban %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bic %>
+    <%= form.text_field :bic %>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :user_id ,value: current_user.id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
